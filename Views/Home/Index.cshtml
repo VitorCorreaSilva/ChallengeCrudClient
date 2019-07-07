@@ -1,0 +1,51 @@
+﻿@model LivroModel
+
+<table class="table table-bordered">
+    
+    <br />
+    <thead>
+        <tr>
+            <td></td>
+            <td>ID</td>
+            <td>TITULO</td>
+            <td>VALOR</td>
+            <td>AUTOR</td>
+            <td>CATEGORIA</td>
+            <td></td>
+        </tr>
+    </thead>
+    <tbody>
+
+        @foreach (var item in (List<LivroModel>)ViewBag.ListaLivros)
+        {
+        <tr>
+            <td><button class="btn btn-primary" onclick="registrar(@item.Id.ToString())">Editar</button></td>
+            <td>@item.Id.ToString()</td>
+            <td>@item.Titulo.ToString()</td>
+            <td>@item.Valor.ToString()</td>
+            <td>@item.Autor.ToString()</td>
+            <td>@item.Tipo.ToString()</td>
+            <td><button class="btn btn-danger" onclick="excluir(@item.Id.ToString())">Excluir</button></td>
+        </tr>
+        }
+
+    </tbody>
+</table>
+
+<button class="btn btn-block btn-primary" onclick="registrar()">Registrar Livro</button>
+
+<script>
+    function registrar(id) {
+        if (id == null) {
+            id = "";
+        }
+        else {
+            id = "/" + id;
+        }
+        window.location.href = window.location.origin + "/Home/Registrar" + id;
+    }
+
+    function excluir(id) {
+        window.location.href = window.location.origin + "/Home/Excluir/" + id;
+    }
+</script>

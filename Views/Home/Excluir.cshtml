@@ -1,0 +1,21 @@
+﻿<h2>Excluir Livro</h2>
+
+<br />
+<h3>Deseja realmente excluir o livro selecionado?</h3>
+
+<br />
+<button class="btn btn-danger" onclick="Excluir(1);">Sim</button>
+<button class="btn btn-primary" onclick="Excluir(0);">Não</button>
+
+<script>
+    function Excluir(id)
+    {
+        if (id == 0)
+        {
+            window.location.href = window.location.origin + "/Home/Index";
+        }
+        else {
+            window.location.href = window.location.origin + "/Home/ExcluirLivro/" + '@ViewData["ClienteID"]';
+        }
+    }
+</script>

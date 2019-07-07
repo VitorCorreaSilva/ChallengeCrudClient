@@ -1,0 +1,56 @@
+﻿@model LivroModel
+
+@{
+    var id = string.Empty;
+    var titulo = string.Empty;
+    var valor = string.Empty;
+    var autor = string.Empty;
+    var tipo = string.Empty;
+
+    try
+    {
+        id = ViewBag.Registro.Id.ToString();
+        titulo = ViewBag.Registro.Titulo.ToString();
+        valor = ViewBag.Registro.Valor.ToString();
+        autor = ViewBag.Registro.Autor.ToString();
+        tipo = ViewBag.Registro.Tipo.ToString();
+        <h2>Editar Livro</h2>
+    }
+    catch
+    {
+        <h2>Registrar Livro</h2>
+    }
+}
+
+<form asp-controller="Home" asp-action="Registrar">
+
+    <input asp-for="Id" class="form-control" value="@id" type="hidden" />
+    <div class="row">
+
+        <div class="col-lg-3">
+            <label>Titulo</label>
+            <input asp-for="Titulo" class="form-control" value="@titulo" />
+        </div>
+
+        <div class="col-lg-3">
+            <label>Valor</label>
+            <input asp-for="Valor" class="form-control" value="@valor" />
+        </div>
+
+        <div class="col-lg-3">
+            <label>Autor</label>
+            <input asp-for="Autor" class="form-control" value="@autor" />
+        </div>
+
+        <div class="col-lg-3">
+            <label>Categoria</label>
+            <input asp-for="Tipo" class="form-control" value="@tipo" />
+        </div>
+
+
+    </div>
+    <br /><br />
+    <button type="submit" class="btn btn-block btn-success" onclick="registrar()">Salvar Livro</button>
+
+
+</form>
