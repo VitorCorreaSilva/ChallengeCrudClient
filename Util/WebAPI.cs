@@ -10,7 +10,7 @@ namespace CrudChallengeClient.Util
 {
     public class WebAPI
     {
-        public static string URI = "https://localhost:44382/api/livro/";
+        public static string URI = "https://crudchallengewebapi.azurewebsites.net/api/livro/";
         public static string TOKEN = "chave_secreta";
 
         private static string RequesteGET_DELETE(string metodo, string parametro, string tipo)
